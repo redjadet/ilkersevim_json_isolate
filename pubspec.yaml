@@ -2,7 +2,7 @@ name: ilkersevim_json_isolate
 description: >-
   JSON map/list decode and encode helpers that offload large payloads with
   Flutter compute.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/redjadet/ilkersevim_json_isolate
 homepage: https://github.com/redjadet/ilkersevim_json_isolate
 issue_tracker: https://github.com/redjadet/ilkersevim_json_isolate/issues
