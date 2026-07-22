@@ -1,0 +1,16 @@
+name: ilkersevim_json_isolate_example
+publish_to: none
+
+environment:
+  sdk: '>=3.12.0 <4.0.0'
+  flutter: '>=3.38.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ilkersevim_json_isolate:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
