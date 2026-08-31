@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Exclude `build/**` from analyzer scope in `analysis_options.yaml`.
+
 ## 0.1.2
 
 - Explain how threshold-based `compute` usage balances UI responsiveness and
