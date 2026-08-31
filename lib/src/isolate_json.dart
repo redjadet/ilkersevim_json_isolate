@@ -14,13 +14,13 @@ final Converter<List<int>, Object?> _kUtf8JsonConverter = utf8.decoder.fuse(
   json.decoder,
 );
 
-Uint8List _bytesToUint8List(final List<int> bytes) =>
+Uint8List _bytesToUint8List(List<int> bytes) =>
     bytes is Uint8List ? bytes : Uint8List.fromList(bytes);
 
-Object? _decodeJsonUtf8BytesForIsolate(final Uint8List bytes) =>
+Object? _decodeJsonUtf8BytesForIsolate(Uint8List bytes) =>
     _kUtf8JsonConverter.convert(bytes);
 
-Future<Map<String, dynamic>> decodeJsonMap(final String payload) async {
+Future<Map<String, dynamic>> decodeJsonMap(String payload) async {
   if (payload.length < _kIsolateDecodeThreshold) {
     final dynamic decoded = jsonDecode(payload);
     if (decoded is Map<String, dynamic>) {
@@ -36,7 +36,7 @@ Future<Map<String, dynamic>> decodeJsonMap(final String payload) async {
   throw const FormatException('Expected a JSON object');
 }
 
-Future<List<dynamic>> decodeJsonList(final String payload) async {
+Future<List<dynamic>> decodeJsonList(String payload) async {
   if (payload.length < _kIsolateDecodeThreshold) {
     final dynamic decoded = jsonDecode(payload);
     if (decoded is List<dynamic>) {
@@ -52,10 +52,10 @@ Future<List<dynamic>> decodeJsonList(final String payload) async {
   throw const FormatException('Expected a JSON array');
 }
 
-dynamic _decodeJson(final String payload) => jsonDecode(payload);
+dynamic _decodeJson(String payload) => jsonDecode(payload);
 
 Future<Map<String, dynamic>> decodeJsonMapFromBytes(
-  final List<int> bytes,
+  List<int> bytes,
 ) async {
   final Uint8List utf8Bytes = _bytesToUint8List(bytes);
   if (utf8Bytes.lengthInBytes < _kIsolateDecodeThreshold) {
@@ -71,7 +71,7 @@ Future<Map<String, dynamic>> decodeJsonMapFromBytes(
   throw const FormatException('Expected a JSON object');
 }
 
-Future<List<dynamic>> decodeJsonListFromBytes(final List<int> bytes) async {
+Future<List<dynamic>> decodeJsonListFromBytes(List<int> bytes) async {
   final Uint8List utf8Bytes = _bytesToUint8List(bytes);
   if (utf8Bytes.lengthInBytes < _kIsolateDecodeThreshold) {
     return _decodeJsonListFromUtf8Sync(utf8Bytes);
@@ -86,7 +86,7 @@ Future<List<dynamic>> decodeJsonListFromBytes(final List<int> bytes) async {
   throw const FormatException('Expected a JSON array');
 }
 
-Map<String, dynamic> _decodeJsonMapFromUtf8Sync(final Uint8List utf8Bytes) {
+Map<String, dynamic> _decodeJsonMapFromUtf8Sync(Uint8List utf8Bytes) {
   final Object? decoded = _kUtf8JsonConverter.convert(utf8Bytes);
   if (decoded is Map<String, dynamic>) {
     return decoded;
@@ -94,7 +94,7 @@ Map<String, dynamic> _decodeJsonMapFromUtf8Sync(final Uint8List utf8Bytes) {
   throw const FormatException('Expected a JSON object');
 }
 
-List<dynamic> _decodeJsonListFromUtf8Sync(final Uint8List utf8Bytes) {
+List<dynamic> _decodeJsonListFromUtf8Sync(Uint8List utf8Bytes) {
   final Object? decoded = _kUtf8JsonConverter.convert(utf8Bytes);
   if (decoded is List<dynamic>) {
     return decoded;
@@ -111,7 +111,7 @@ List<dynamic> _decodeJsonListFromUtf8Sync(final Uint8List utf8Bytes) {
 ///
 /// This is useful for size estimation operations that don't need the result
 /// immediately, such as cache size calculations.
-Future<String> encodeJsonIsolate(final dynamic object) async {
+Future<String> encodeJsonIsolate(dynamic object) async {
   if (object is String) {
     if (object.length < _kIsolateDecodeThreshold) {
       return jsonEncode(object);
@@ -134,4 +134,4 @@ Future<String> encodeJsonIsolate(final dynamic object) async {
   return compute(_encodeJson, object);
 }
 
-String _encodeJson(final dynamic object) => jsonEncode(object);
+String _encodeJson(dynamic object) => jsonEncode(object);

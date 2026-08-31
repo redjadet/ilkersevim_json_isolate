@@ -324,7 +324,7 @@ void main() {
   });
 }
 
-String _repeat(final String value, final int count) {
+String _repeat(String value, int count) {
   final StringBuffer buffer = StringBuffer();
   for (int i = 0; i < count; i++) {
     buffer.write(value);

@@ -19,7 +19,7 @@ dependencies:
   ilkersevim_json_isolate: ^0.1.2
 ```
 
-Requires Flutter `>=3.38.0`, Dart `>=3.12.0`. Hosted dependency only (no
+Requires Flutter `>=3.47.0`, Dart `>=3.13.0`. Hosted dependency only (no
 `path:` / `git:`).
 
 ## Usage

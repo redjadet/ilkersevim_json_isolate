@@ -2,7 +2,7 @@ name: ilkersevim_json_isolate
 description: >-
   Keep Flutter UIs responsive by moving large JSON work to compute while
   decoding small payloads without isolate overhead.
-version: 0.1.3
+version: 0.1.4
 repository: https://github.com/redjadet/ilkersevim_json_isolate
 homepage: https://github.com/redjadet/ilkersevim_json_isolate
 issue_tracker: https://github.com/redjadet/ilkersevim_json_isolate/issues
@@ -13,8 +13,8 @@ topics:
   - compute
 
 environment:
-  sdk: '>=3.12.0 <4.0.0'
-  flutter: '>=3.38.0'
+  sdk: '>=3.13.0 <4.0.0'
+  flutter: '>=3.47.0'
 
 dependencies:
   flutter:

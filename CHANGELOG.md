@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Raise minimum SDK to Dart `>=3.13.0`.
+- Raise minimum Flutter SDK to `>=3.47.0`.
+- Pin CI to Dart 3.13.2 / Flutter 3.47.2 stable.
+
 ## 0.1.3
 
 - Exclude `build/**` from analyzer scope in `analysis_options.yaml`.
