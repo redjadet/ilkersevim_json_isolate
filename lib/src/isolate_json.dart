@@ -54,9 +54,7 @@ Future<List<dynamic>> decodeJsonList(String payload) async {
 
 dynamic _decodeJson(String payload) => jsonDecode(payload);
 
-Future<Map<String, dynamic>> decodeJsonMapFromBytes(
-  List<int> bytes,
-) async {
+Future<Map<String, dynamic>> decodeJsonMapFromBytes(List<int> bytes) async {
   final Uint8List utf8Bytes = _bytesToUint8List(bytes);
   if (utf8Bytes.lengthInBytes < _kIsolateDecodeThreshold) {
     return _decodeJsonMapFromUtf8Sync(utf8Bytes);
