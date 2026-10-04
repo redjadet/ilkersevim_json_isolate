@@ -100,12 +100,14 @@ List<dynamic> _decodeJsonListFromUtf8Sync(Uint8List utf8Bytes) {
   throw const FormatException('Expected a JSON array');
 }
 
-/// Encodes a JSON-serializable object to a JSON string in an isolate if the
-/// serialized size is expected to be large.
+/// Encodes a JSON-serializable object to a JSON string, optionally in an
+/// isolate when the payload is large enough to justify isolate overhead.
 ///
-/// Uses `compute()` for objects that, when encoded, are larger than
-/// `_kIsolateDecodeThreshold` (8KB). For smaller objects, encoding happens
-/// synchronously on the current isolate.
+/// - [String]: encoded on the current isolate when shorter than 8 KiB;
+///   otherwise via `compute()`.
+/// - [List] and [Map]: encoded on the current isolate when they have fewer
+///   than 20 elements; otherwise via `compute()`.
+/// - Other JSON-serializable values: always encoded via `compute()`.
 ///
 /// This is useful for size estimation operations that don't need the result
 /// immediately, such as cache size calculations.

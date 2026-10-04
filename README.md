@@ -16,7 +16,7 @@ License: [Apache-2.0](LICENSE). Issues:
 
 ```yaml
 dependencies:
-  ilkersevim_json_isolate: ^0.1.2
+  ilkersevim_json_isolate: ^0.1.4
 ```
 
 Requires Flutter `>=3.47.0`, Dart `>=3.13.0`. Hosted dependency only (no
